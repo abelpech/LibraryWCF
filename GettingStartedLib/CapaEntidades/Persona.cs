@@ -68,5 +68,10 @@ namespace GettingStartedLib.CapaEntidades
         {
 
         }
+
+        public static implicit operator Persona(CalculatorService v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

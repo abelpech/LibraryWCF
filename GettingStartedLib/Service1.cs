@@ -4,7 +4,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net;
 using System.ServiceModel;
-
+using GettingStartedLib.CapaDatos;
+using GettingStartedLib.CapaEntidades;
 namespace GettingStartedLib
 {
     public class CalculatorService : ICalculator
@@ -16,6 +17,28 @@ namespace GettingStartedLib
 
             conn = new SqlConnection("server =  " + host + "; database=dbBiblioteca; integrated security = true");
             //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
+        }
+
+        public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro)
+        {
+            Prestamo prestamo = null;
+            //bool disponible = false;
+
+            prestamo = bibliotecario.prestarLibro(libro);
+            if (prestamo != null)
+            {
+                prestamo.personaPrestatario = this;
+                prestamo.fechaVencimiento = DateTime.Today.AddDays(7);
+            }
+
+            return libro;
+        }
+
+        public virtual bool retornarLibro(Libro libro)
+        {
+            bool retornado = false;
+            retornado = libro.validarDisponibilidad();
+            return retornado;
         }
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)
@@ -106,5 +129,5 @@ namespace GettingStartedLib
             System.Diagnostics.Debug.WriteLine("----- SP: " + querySP + ", ¡Ejecutado con exito! -----");
             return ResultFromSP;
         }
-    }
+    }   
 }
