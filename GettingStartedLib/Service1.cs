@@ -15,26 +15,8 @@ namespace GettingStartedLib
             string host = Dns.GetHostName();
 
             conn = new SqlConnection("server =  " + host + "; database=dbBiblioteca; integrated security = true");
+            //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
         }
-
-
-        public bool ValidateCredentials(string matricula, string password, string tipo)
-        {
-            bool result = false;
-            List<string> parametros = new List<string>();
-            parametros.Add(matricula);
-            parametros.Add(password);
-            parametros.Add(tipo);
-
-            int number = ExecSPReturnInt("spAcessoSistema", parametros);
-            if (number != 0)
-                result = true;
-            else
-                result = false;
-
-            return result;
-        }
-
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)
         {

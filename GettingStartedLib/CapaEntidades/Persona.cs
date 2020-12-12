@@ -35,7 +35,7 @@ namespace GettingStartedLib.CapaEntidades
         public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro)
         {
             Prestamo prestamo = null;
-            bool disponible = false;
+            //bool disponible = false;
 
             prestamo = bibliotecario.prestarLibro(libro);
             if(prestamo != null)

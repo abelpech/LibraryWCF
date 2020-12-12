@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
+using GettingStartedLib.CapaDatos;
+using GettingStartedLib.CapaEntidades;
 
 namespace GettingStartedLib
 {
@@ -7,7 +9,11 @@ namespace GettingStartedLib
     public interface ICalculator
     {
         [OperationContract]
-        bool ValidateCredentials(string matricula, string password, string tipo);
-            
+        Libro pedirLibro(Bibliotecario bibliotecario, Libro libro);
+
+        [OperationContract]
+        bool retornarLibro(Libro libro);
+
+
     }
 }
