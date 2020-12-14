@@ -19,17 +19,24 @@ namespace GettingStartedLib
             //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
         }
 
-        public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona)
+        // Ejemplo 1
+        // Pedimos el objeto Persona como parametro ya que requerimos el objeto para mandar llamar su funcion y saber que usuario pide el libro.
+        // Se llama el metodo correspondiente y se devuelve la informacion al usuario.
+        public Prestamo pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona)
         {
-            libro = persona.pedirLibro(bibliotecario, libro);
-            return libro;
+            Prestamo prestamo = null;
+            prestamo = persona.pedirLibro(bibliotecario, libro);
+            return prestamo;
         }
+        // Se hace lo mismo con los demas metodos
 
-        public virtual bool retornarLibro(Libro libro)
+        public bool retornarLibro(Libro libro, Persona persona)
         {
-            bool retornado = false;
-            retornado = libro.validarDisponibilidad();
-            return retornado;
+            bool regresoExitoso = false;
+            /*
+               Se añadio el parametro persona...
+             */
+            return regresoExitoso;
         }
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)

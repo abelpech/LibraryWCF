@@ -34,7 +34,7 @@ namespace GettingStartedLib.CapaEntidades
             this.password = password;
         }
 
-        public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro)
+        public virtual Prestamo pedirLibro(Bibliotecario bibliotecario, Libro libro)
         {
             Prestamo prestamo = null;
 
@@ -43,9 +43,10 @@ namespace GettingStartedLib.CapaEntidades
             {
                 prestamo.personaPrestatario = this;
                 prestamo.fechaVencimiento = DateTime.Today.AddDays(7);
+                PrestamoDAO.GetInstance().AltaPrestamo(prestamo);
             }
 
-            return libro;
+            return prestamo;
         }
 
         public virtual bool retornarLibro(Libro libro)

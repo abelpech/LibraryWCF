@@ -9,10 +9,10 @@ namespace GettingStartedLib
     public interface ICalculator
     {
         [OperationContract]
-        Libro pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona);
+        Prestamo pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona);
 
         [OperationContract]
-        bool retornarLibro(Libro libro);
+        bool retornarLibro(Libro libro, Persona persona);
 
 
     }
