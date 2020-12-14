@@ -1,0 +1,67 @@
+﻿<Window x:Class="Login.MainWindow"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="470" Width="425" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#FF133157">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button Width="30" Height="30" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0" Click="Button_Click" Background="#FF133157">
+                            <materialDesign:PackIcon Kind="WindowClose"/>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <materialDesign:ColorZone Mode="PrimaryMid" Background="#FF133157">
+                <TextBlock Text="Biblioteca CESUN" FontSize="35" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65,50,0,10"/>
+            </materialDesign:ColorZone>
+            
+            
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <StackPanel Orientation="Vertical" Margin="40 20 0 0">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" Foreground="{Binding ElementName=txt_usuario, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                    <TextBox x:Name="txt_usuario" Width="300" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 40 0 0">
+                    <materialDesign:PackIcon Kind="Key" Foreground="{Binding ElementName=txt_contrasena, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4"/>
+                    <PasswordBox x:Name="txt_contrasena" Width="300" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True"/>
+                </StackPanel>
+                <CheckBox Content="Recordar contraseña" Margin=" 0 30 0 0"/>
+                <Button Content="Iniciar" Width="80" HorizontalAlignment="Right" Margin="0 20 70 0" Background="#FF133157" Click="Button_Click_1"/>
+
+
+
+            </StackPanel>
+            
+        </Grid>
+        
+    </Grid>
+</Window>
