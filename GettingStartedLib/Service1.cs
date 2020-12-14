@@ -13,10 +13,7 @@ namespace GettingStartedLib
         SqlConnection conn;
         public CalculatorService()
         {
-            //string host = Dns.GetHostName();
-
-            //conn = new SqlConnection("server =  " + host + "; database=dbBiblioteca; integrated security = true");
-            //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
+           
         }
 
         // Ejemplo 1
@@ -28,7 +25,6 @@ namespace GettingStartedLib
             prestamo = persona.pedirLibro(bibliotecario, libro);
             return prestamo;
         }
-        // Se hace lo mismo con los demas metodos
 
         public bool retornarLibro(Libro libro, Persona persona)
         {
@@ -52,7 +48,6 @@ namespace GettingStartedLib
             dt = persona.consultarCatalogoDeLibros();
             return dt;
         }
-
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)
         {
