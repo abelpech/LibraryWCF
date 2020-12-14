@@ -113,5 +113,32 @@ namespace GettingStartedLib.CapaDatos
             }
             return persona;
         }
+
+        public DataTable consultaPrestamos()
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            DataTable dt = null;
+            SqlDataReader dr = null;
+            try
+            {
+                conexion = Conexion.GetInstance().ConexionBD();
+                cmd = new SqlCommand("spBibliotecario_ConsultaPrestamos", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dt;
+        }
     }
 }

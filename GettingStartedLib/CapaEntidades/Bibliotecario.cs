@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GettingStartedLib.CapaEntidades;
+using GettingStartedLib.CapaDatos;
 
 namespace GettingStartedLib.CapaEntidades
 {
@@ -42,6 +44,20 @@ namespace GettingStartedLib.CapaEntidades
             }
 
             return prestamo;
+        }
+
+        public void ponerMulta(Persona persona)
+        {
+            // TO DO
+            // Conectar con sistema de cobranza
+        }
+
+        public DataTable consultaPrestamos()
+        {
+            DataTable dt = null;
+            dt = BibliotecarioDAO.GetInstance().consultaPrestamos();
+
+            return dt;
         }
     }
 }
