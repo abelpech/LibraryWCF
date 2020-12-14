@@ -17,9 +17,9 @@ namespace GettingStartedLib
         
         [OperationContract]
         DataTable consultarLibros(Persona persona);
-        
+
         [OperationContract]
-        DataTable consultarCatalogoDeLibros(Persona persona)
+        DataTable consultarCatalogoDeLibros(Persona persona);
 
     }
 }
