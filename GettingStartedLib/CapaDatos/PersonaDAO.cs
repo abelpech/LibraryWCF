@@ -85,6 +85,39 @@ namespace GettingStartedLib.CapaDatos
                 conexion.Close();
             }
             return dt;
+        }
+
+        public bool retornarLibro(Libro libro, Persona persona)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            int result = 0;
+            bool retornado = false;
+            try
+            {
+                conexion = Conexion.GetInstance().ConexionBD();
+                cmd = new SqlCommand("spPrestamo_VencerPrestamo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@prmCodigoLibro", libro.codigo);
+                cmd.Parameters.AddWithValue("@prmMatricula", persona.matricula);
+                conexion.Open();
+                result = (Int32)cmd.ExecuteNonQuery();
+                Debug.WriteLine("Query executed!!: " + Convert.ToString(result));
+                if(result > 0)
+                {
+                    retornado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return retornado;
 
         }
     }

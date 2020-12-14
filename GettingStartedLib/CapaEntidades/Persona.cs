@@ -52,7 +52,7 @@ namespace GettingStartedLib.CapaEntidades
         public virtual bool retornarLibro(Libro libro)
         {
             bool retornado = false;
-            retornado = libro.validarDisponibilidad();
+            retornado = PersonaDAO.GetInstance().retornarLibro(libro, this);
             return retornado;
         }
 
