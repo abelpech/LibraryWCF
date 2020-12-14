@@ -13,9 +13,9 @@ namespace GettingStartedLib
         SqlConnection conn;
         public CalculatorService()
         {
-            string host = Dns.GetHostName();
+            //string host = Dns.GetHostName();
 
-            conn = new SqlConnection("server =  " + host + "; database=dbBiblioteca; integrated security = true");
+            //conn = new SqlConnection("server =  " + host + "; database=dbBiblioteca; integrated security = true");
             //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
         }
 
@@ -32,12 +32,27 @@ namespace GettingStartedLib
 
         public bool retornarLibro(Libro libro, Persona persona)
         {
-            bool regresoExitoso = false;
-            /*
-               Se añadio el parametro persona...
-             */
-            return regresoExitoso;
+            bool retornado = false;
+            retornado = persona.retornarLibro(libro);
+            return retornado;
         }
+
+        public DataTable consultarLibros(Persona persona)
+        {
+            DataTable dt = null;
+
+            dt = persona.consultarLibros();
+            return dt;
+        }
+
+        public DataTable consultarCatalogoDeLibros(Persona persona)
+        {
+            DataTable dt = null;
+
+            dt = persona.consultarCatalogoDeLibros();
+            return dt;
+        }
+
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)
         {

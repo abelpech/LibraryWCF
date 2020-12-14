@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.ServiceModel;
 using GettingStartedLib.CapaDatos;
 using GettingStartedLib.CapaEntidades;
@@ -13,7 +14,12 @@ namespace GettingStartedLib
 
         [OperationContract]
         bool retornarLibro(Libro libro, Persona persona);
-
+        
+        [OperationContract]
+        DataTable consultarLibros(Persona persona);
+        
+        [OperationContract]
+        DataTable consultarCatalogoDeLibros(Persona persona)
 
     }
 }

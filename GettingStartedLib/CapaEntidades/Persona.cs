@@ -74,7 +74,7 @@ namespace GettingStartedLib.CapaEntidades
 
         public virtual void pagarMulta()
         {
-
+            //Pertenece a otro modulo.
         }
 
         public static implicit operator Persona(CalculatorService v)
