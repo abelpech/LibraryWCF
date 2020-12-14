@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GettingStartedLib.CapaEntidades;
+using GettingStartedLib.CapaDatos;
 
 namespace GettingStartedLib.CapaEntidades
 {
@@ -35,7 +37,6 @@ namespace GettingStartedLib.CapaEntidades
         public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro)
         {
             Prestamo prestamo = null;
-            //bool disponible = false;
 
             prestamo = bibliotecario.prestarLibro(libro);
             if(prestamo != null)
@@ -54,14 +55,20 @@ namespace GettingStartedLib.CapaEntidades
             return retornado;
         }
 
-        public virtual void consultarLibros()
+        public virtual DataTable consultarLibros()
         {
-            
+            DataTable dt = null;
+
+            dt = PersonaDAO.GetInstance().consultarLibros();
+            return dt;
         }
 
-        public virtual void consultarCatalogoDeLibros()
+        public virtual DataTable consultarCatalogoDeLibros()
         {
+            DataTable dt = null;
 
+            dt = PersonaDAO.GetInstance().consultarCatalogoDeLibros();
+            return dt;
         }
 
         public virtual void pagarMulta()

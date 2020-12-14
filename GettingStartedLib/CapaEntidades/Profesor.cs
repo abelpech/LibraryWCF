@@ -24,33 +24,5 @@ namespace GettingStartedLib.CapaEntidades
             this.password = password;
         }
 
-        public Libro pedirLibro(Libro libro)
-        {
-            bool disponible = false;
-            disponible = libro.validarDisponibilidad();
-            return libro;
-        }
-
-        public override bool retornarLibro(Libro libro)
-        {
-            bool retornado = false;
-            retornado = libro.validarDisponibilidad();
-            return retornado;
-        }
-
-        public override void consultarLibros()
-        {
-            
-        }
-
-        public override void consultarCatalogoDeLibros()
-        {
-
-        }
-
-        public override void pagarMulta()
-        {
-
-        }
     }
 }
