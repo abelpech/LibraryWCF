@@ -7,7 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingStartedLib", "Gettin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingStartedHost", "GettingStartedHost\GettingStartedHost.csproj", "{DB40FB3D-CC34-46A3-A35E-CBA61F52880E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{7E7A543C-EA0F-4988-A200-D889F19FC423}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "..\EduardoAPPLogin\Login\Login.csproj", "{7E7A543C-EA0F-4988-A200-D889F19FC423}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E27EE93B-54E1-4EFB-9998-5FC60E9945CF} = {E27EE93B-54E1-4EFB-9998-5FC60E9945CF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

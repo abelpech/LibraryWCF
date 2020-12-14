@@ -64,16 +64,14 @@ namespace GettingStartedLib.CapaDatos
         {
             SqlConnection conexion = null;
             SqlCommand cmd = null;
-            DataTable dt = null;
-            SqlDataReader dr = null;
+            DataTable dt = new DataTable();
             try
             {
                 conexion = Conexion.GetInstance().ConexionBD();
                 cmd = new SqlCommand("spLibro_ConsultaCatalogo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 conexion.Open();
-                dr = cmd.ExecuteReader();
-                dt.Load(dr);
+                dt.Load(cmd.ExecuteReader());
             }
             catch (Exception ex)
             {

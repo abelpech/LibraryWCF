@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Net;
 using System.ServiceModel;
 using GettingStartedLib.CapaDatos;
@@ -33,20 +34,46 @@ namespace GettingStartedLib
             return retornado;
         }
 
-        public DataTable consultarLibros(Persona persona)
+        public DataSet consultarLibros(Persona persona)
         {
-            DataTable dt = null;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
 
             dt = persona.consultarLibros();
-            return dt;
+            ds.Tables.Add(dt);
+            return ds;
         }
 
-        public DataTable consultarCatalogoDeLibros(Persona persona)
+        public DataSet consultarCatalogoDeLibros()
         {
-            DataTable dt = null;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
 
+            Persona persona = new Persona();
             dt = persona.consultarCatalogoDeLibros();
-            return dt;
+            ds.Tables.Add(dt);
+            return ds;
+        }
+
+        public DataSet consultaPrestamos()
+        {
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            Bibliotecario bibliotecario = new Bibliotecario();
+            dt = bibliotecario.consultaPrestamos();
+            ds.Tables.Add(dt);
+            return ds;
+        }
+
+        public Estudiante accesoSistema(string username, string password)
+        {
+            Debug.WriteLine("---------------Buscando estudiante");
+            bool existe = false;
+            Estudiante estudiante = new Estudiante();
+            estudiante = EstudianteDAO.GetInstance().AccesoSitema(username, password);
+
+            return estudiante;
         }
 
         public int ExecSPReturnInt(string querySP, List<string> parametros)

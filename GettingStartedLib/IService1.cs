@@ -16,10 +16,16 @@ namespace GettingStartedLib
         bool retornarLibro(Libro libro, Persona persona);
         
         [OperationContract]
-        DataTable consultarLibros(Persona persona);
+        DataSet consultarLibros(Persona persona);
 
         [OperationContract]
-        DataTable consultarCatalogoDeLibros(Persona persona);
+        DataSet consultarCatalogoDeLibros();
+
+        [OperationContract]
+        Estudiante accesoSistema(string username, string password);
+
+        [OperationContract]
+        DataSet consultaPrestamos();
 
     }
 }

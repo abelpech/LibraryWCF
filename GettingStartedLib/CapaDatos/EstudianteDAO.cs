@@ -31,7 +31,6 @@ namespace GettingStartedLib.CapaDatos
             return alumnoDAO;
         }
         #endregion
-        //Va a retornar un objeto del tipo empleado
 
         public Estudiante AccesoSitema(String matricula, String password)
         {
@@ -53,12 +52,13 @@ namespace GettingStartedLib.CapaDatos
                 {
                     objEstudiante = new Estudiante();
                     objEstudiante.matricula = dr["matricula"].ToString();
-                    objEstudiante.nombre = dr["usuario"].ToString();
+                    objEstudiante.nombre = dr["nombre"].ToString();
                     objEstudiante.apellido = dr["apellido"].ToString();
                     objEstudiante.telefono = dr["telefono"].ToString();
                     objEstudiante.email = dr["email"].ToString();
                     objEstudiante.direccion = dr["direccion"].ToString();
                     objEstudiante.password = dr["password"].ToString();
+                    Debug.WriteLine("---------------ESTUDIANTE ENCONTRADO");
                 }
             }
             catch (Exception ex)
