@@ -49,6 +49,7 @@
     <Compile Include="CapaDatos\EstudianteDAO.cs" />
     <Compile Include="CapaDatos\LibroDAO.cs" />
     <Compile Include="CapaDatos\PrestamoDAO.cs" />
+    <Compile Include="CapaDatos\PersonaDAO.cs" />
     <Compile Include="CapaDatos\ProfesorDAO.cs" />
     <Compile Include="CapaEntidades\Bibliotecario.cs" />
     <Compile Include="CapaEntidades\Estudiante.cs" />

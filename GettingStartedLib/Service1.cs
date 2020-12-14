@@ -19,18 +19,9 @@ namespace GettingStartedLib
             //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=dbBiblioteca; integrated security = true");
         }
 
-        public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro)
+        public virtual Libro pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona)
         {
-            Prestamo prestamo = null;
-            //bool disponible = false;
-
-            prestamo = bibliotecario.prestarLibro(libro);
-            if (prestamo != null)
-            {
-                prestamo.personaPrestatario = this;
-                prestamo.fechaVencimiento = DateTime.Today.AddDays(7);
-            }
-
+            libro = persona.pedirLibro(bibliotecario, libro);
             return libro;
         }
 
