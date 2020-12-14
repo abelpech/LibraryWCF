@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GettingStartedLib.CapaEntidades;
 using GettingStartedLib.CapaDatos;
+using System.Diagnostics;
 
 namespace GettingStartedLib.CapaEntidades
 {
@@ -36,10 +37,10 @@ namespace GettingStartedLib.CapaEntidades
 
         public virtual Prestamo pedirLibro(Bibliotecario bibliotecario, Libro libro)
         {
-            Prestamo prestamo = null;
+            Prestamo prestamo = new Prestamo();
 
             prestamo = bibliotecario.prestarLibro(libro);
-            if(prestamo != null)
+            if (prestamo != null)
             {
                 prestamo.personaPrestatario = this;
                 prestamo.fechaVencimiento = DateTime.Today.AddDays(7);

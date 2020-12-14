@@ -42,7 +42,7 @@ namespace GettingStartedLib.CapaDatos
             try
             {
                 conexion = Conexion.GetInstance().ConexionBD();
-                cmd = new SqlCommand("spValidarProfesor", conexion);
+                cmd = new SqlCommand("spAltaPrestamo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@prmMatriculaBibliotecario", prestamo.bibliotecario.matricula);
                 cmd.Parameters.AddWithValue("@prmMatriculaPrestatario", prestamo.personaPrestatario.matricula);

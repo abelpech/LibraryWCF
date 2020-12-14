@@ -44,9 +44,14 @@ namespace GettingStartedLib.CapaDatos
                 cmd = new SqlCommand("spLibro_ValidarDisponibilidad", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@prmCodigoLibro", libro.codigo);
-                cmd.Parameters.Add("@numCopias", SqlDbType.Int).Direction = ParameterDirection.Output;
+                var ReturnValue = cmd.Parameters.Add("@numCopias", SqlDbType.Int);
+                ReturnValue.Direction = ParameterDirection.ReturnValue;
+
                 conexion.Open();
-                numCopias = (Int32)cmd.ExecuteNonQuery();
+                Debug.WriteLine("LIBRO: " + libro.codigo);
+                cmd.ExecuteReader();
+                numCopias = (int)ReturnValue.Value;
+                Debug.WriteLine("LIBRO: numcopias " + numCopias);
                 if (numCopias > 0)
                 {
                     disponible = true;

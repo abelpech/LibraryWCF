@@ -22,7 +22,7 @@ namespace GettingStartedLib
         // Se llama el metodo correspondiente y se devuelve la informacion al usuario.
         public Prestamo pedirLibro(Bibliotecario bibliotecario, Libro libro, Persona persona)
         {
-            Prestamo prestamo = null;
+            Prestamo prestamo = new Prestamo();
             prestamo = persona.pedirLibro(bibliotecario, libro);
             return prestamo;
         }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GettingStartedLib.CapaEntidades;
 using GettingStartedLib.CapaDatos;
+using System.Diagnostics;
 
 namespace GettingStartedLib.CapaEntidades
 {
