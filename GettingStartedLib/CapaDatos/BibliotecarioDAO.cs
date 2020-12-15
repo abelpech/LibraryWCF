@@ -42,7 +42,7 @@ namespace GettingStartedLib.CapaDatos
             try
             {
                 conexion = Conexion.GetInstance().ConexionBD();
-                cmd = new SqlCommand("spValidarProfesor", conexion);
+                cmd = new SqlCommand("spAccesoSistema", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@prmMatricula", matricula);
                 cmd.Parameters.AddWithValue("@prmPassword", password);
@@ -74,45 +74,6 @@ namespace GettingStartedLib.CapaDatos
 
         }
 
-        public Persona PrestarLibro(Persona persona)
-        {
-            SqlConnection conexion = null;
-            SqlCommand cmd = null;
-            Bibliotecario objBibliotecario = null;
-            SqlDataReader dr = null;
-            try
-            {
-                conexion = Conexion.GetInstance().ConexionBD();
-                cmd = new SqlCommand("spValidarProfesor", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmMatricula", objBibliotecario.matricula);
-                cmd.Parameters.AddWithValue("@prmPassword", objBibliotecario.password);
-                cmd.Parameters.AddWithValue("@prmTipo", 1);
-                conexion.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    objBibliotecario = new Bibliotecario();
-                    objBibliotecario.matricula = dr["matricula"].ToString();
-                    objBibliotecario.nombre = dr["usuario"].ToString();
-                    objBibliotecario.apellido = dr["apellido"].ToString();
-                    objBibliotecario.telefono = dr["telefono"].ToString();
-                    objBibliotecario.email = dr["email"].ToString();
-                    objBibliotecario.direccion = dr["direccion"].ToString();
-                    objBibliotecario.password = dr["password"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                objBibliotecario = null;
-                throw ex;
-            }
-            finally
-            {
-                conexion.Close();
-            }
-            return persona;
-        }
 
         public DataTable consultaPrestamos()
         {

@@ -42,7 +42,7 @@ namespace GettingStartedLib.CapaDatos
             try
             {
                 conexion = Conexion.GetInstance().ConexionBD();
-                cmd = new SqlCommand("spValidarProfesor", conexion);
+                cmd = new SqlCommand("spAccesoSistema", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@prmMatricula", matricula);
                 cmd.Parameters.AddWithValue("@prmPassword", password);
